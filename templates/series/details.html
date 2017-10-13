@@ -1,0 +1,14 @@
+<div class="series-details" ngif="series.id != null">
+    <h1><a ng-href="/series/{{series.id}}">{{series.title}}<a/></h1>
+    <a ng-href="/series/{{series.id}}"><img ng-src="{{series.thumbnail.path}}.{{series.thumbnail.extension}}" alt="{{series.title}}"></a>
+    <p>{{series.description}}</p>
+    <p class="run">
+        <span class="start">{{series.startYear}}</span> -
+        <span class="end">{{series.endYear}}</span>
+    </p>
+    <characters-list></characters-list>
+    <comics-list></comics-list>
+    <creators-list></creators-list>
+    <events-list></events-list>
+    <stories-list></stories-list>
+</div>

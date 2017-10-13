@@ -1,0 +1,10 @@
+<h1>Events</h1>
+<div class="count">
+    <span class="total">Total: {{total}}</span>
+</div>
+<ul class="events list" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="{{infiniteScrollDisabled}}">
+    <li class="event-item" ng-repeat="event in events">
+        <a ng-href="/event/{{event.id}}"><img ng-src="{{event.thumbnail.path}}.{{event.thumbnail.extension}}" alt="{{event.title}}"></a>
+        <h3><a ng-href="/event/{{event.id}}">{{event.title}}<a/></h3>
+    </li>
+</ul>

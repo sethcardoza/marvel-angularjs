@@ -1,0 +1,17 @@
+<h1>Comics</h1>
+<div class="list-options">
+    <form novalidate>
+        <label for="startsWith">
+            <input type="text" name="startsWith" id="startsWith" ng-change="filter()" ng-model="listOptions.startsWith" placeholder="Filter" value="" />
+        </label>
+    </form>
+</div>
+<div class="count">
+    <span class="total">Total: {{total}}</span>
+</div>
+<ul class="comics list" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="{{infiniteScrollDisabled}}">
+    <li class="comic-item" ng-repeat="comic in comics">
+        <a ng-href="/comic/{{comic.id}}"><img ng-src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="{{comic.title}}"></a>
+        <h3><a ng-href="/comic/{{comic.id}}">{{comic.title}}<a/></h3>
+    </li>
+</ul>

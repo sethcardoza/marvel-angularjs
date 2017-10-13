@@ -1,0 +1,10 @@
+<div class="story-details" ngif="story.id != null">
+    <h1><a ng-href="/story/{{story.id}}">{{story.title}}<a/></h1>
+    <a ng-href="/story/{{story.id}}"><img ng-src="{{story.thumbnail.path}}.{{story.thumbnail.extension}}" alt="{{story.title}}"></a>
+    <p>{{story.description}}</p>
+    <characters-list></characters-list>
+    <comics-list></comics-list>
+    <creators-list></creators-list>
+    <events-list></events-list>
+    <series-list></series-list>
+</div>

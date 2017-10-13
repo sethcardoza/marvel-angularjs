@@ -1,0 +1,13 @@
+<div class="event-details" ngif="event.id != null">
+    <h1><a ng-href="/event/{{event.id}}">{{event.title}}<a/></h1>
+    <a ng-href="/event/{{event.id}}"><img ng-src="{{event.thumbnail.path}}.{{event.thumbnail.extension}}" alt="{{event.title}}"></a>
+    <p>{{event.description}}</p>
+    <p class="run">
+        <span class="start">{{formatDate(event.start) | date:'longDate'}}</span> -
+        <span class="end">{{formatDate(event.end) | date:'longDate'}}</span>
+    </p>
+    <comics-list></comics-list>
+    <creators-list></creators-list>
+    <series-list></series-list>
+    <stories-list></stories-list>
+</div>

@@ -1,0 +1,8 @@
+<div ng-if="events.length > 0">
+    <h3>Events</h3>
+    <ul class="events">
+        <li class="event-item" ng-repeat="event in events">
+            <h3><a ng-href="/event/{{getIdFromResoureLink(event.resourceURI)}}">{{event.name}}<a/></h3>
+        </li>
+    </ul>
+</div>

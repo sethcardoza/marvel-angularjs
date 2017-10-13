@@ -1,0 +1,17 @@
+<h1>Stories</h1>
+<div class="list-options">
+    <form novalidate>
+        <label for="startsWith">
+            <input type="text" name="startsWith" id="startsWith" ng-change="filter()" ng-model="listOptions.startsWith" placeholder="Filter" value="" />
+        </label>
+    </form>
+</div>
+<div class="count">
+    <span class="total">Total: {{total}}</span>
+</div>
+<ul class="stories list" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="{{infiniteScrollDisabled}}">
+    <li class="story-item" ng-repeat="story in stories">
+        <a ng-href="/story/{{story.id}}"><img ng-src="{{story.thumbnail.path}}.{{story.thumbnail.extension}}" alt="{{story.title}}"></a>
+        <h3><a ng-href="/story/{{story.id}}">{{story.title}}<a/></h3>
+    </li>
+</ul>

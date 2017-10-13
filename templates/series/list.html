@@ -1,0 +1,8 @@
+<div ng-if="series.length > 0">
+    <h3>Series</h3>
+    <ul class="series">
+        <li class="series-item" ng-repeat="item in series">
+            <h3><a ng-href="/series/{{getIdFromResoureLink(item.resourceURI)}}">{{item.name}}<a/></h3>
+        </li>
+    </ul>
+</div>

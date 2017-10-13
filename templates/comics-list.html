@@ -1,0 +1,6 @@
+<ul class="comics">
+    <li class="comic-item" ng-repeat="comic in comics">
+        <a ng-href="/comic/{{comic.id}}"><img ng-src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="{{comic.title}}"></a>
+        <h3><a ng-href="/comic/{{comic.id}}">{{comic.title}}<a/></h3>
+    </li>
+</ul>
