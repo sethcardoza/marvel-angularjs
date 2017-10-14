@@ -1,8 +1,8 @@
 <div ng-if="events.length > 0">
-    <h3>Events</h3>
+    <h3>Events <a class="view-all" href="/events/belonging-to/{{currentItemType}}/{{currentItemId}}">(View All)</a></h3>
     <ul class="events">
         <li class="event-item" ng-repeat="event in events">
-            <h3><a ng-href="/event/{{getIdFromResoureLink(event.resourceURI)}}">{{event.name}}<a/></h3>
+            <h3><a ng-href="/events/{{getIdFromResoureLink(event.resourceURI)}}">{{event.name}}<a/></h3>
         </li>
     </ul>
 </div>

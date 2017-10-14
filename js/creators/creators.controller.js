@@ -1,23 +1,25 @@
-comicsApp.controller('CreatorsController', function($location, $q, $routeParams, $scope, CreatorsService) {
+comicsApp.controller('CreatorsController', function($location, $q, $routeParams, $scope, MarvelService) {
     var busy = false;
     var data = null;
     var deferred = $q.defer();
     var id;
+    var itemType;
+    var itemId;
     var max = false;
     var offset = 0;
-    var params;
-    var paramsChanged = false;
+    var params = {};
     var self = this;
+    var type = 'creators';
 
     $scope.creators = [];
     $scope.listOptions = {};
     $scope.infiniteScrollDisabled = false;
-    $scope.currentItemType = 'creators';
+    $scope.currentItemType = type;
 
     id = $routeParams.id;
     $scope.currentItemId = id;
     if (typeof id !== 'undefined' && id !== null) {
-      CreatorsService.getCreator(id).then(function(data) {
+      MarvelService.getItem(type, id).then(function(data) {
         console.log(data);
         $scope.creator = data;
         $scope.comics = data.comics.items;
@@ -27,13 +29,22 @@ comicsApp.controller('CreatorsController', function($location, $q, $routeParams,
       });
     }
 
+    itemType = $routeParams.itemType;
+    itemId = $routeParams.itemId;
+    if (itemType && itemId) {
+      params[itemType] = itemId;
+      MarvelService.getItem(itemType, itemId).then(function(data) {
+        console.log(data);
+        $scope.belongingTo = data;
+        $scope.belongingTo.type = itemType;
+      });
+    }
+
     $scope.loadMore = function() {
       if (!busy && !max) {
         busy = true;
 
-        params = {
-          offset: offset
-        };
+        params.offset = offset;
 
         if ($scope.listOptions.startsWith !== '') {
           params.nameStartsWith = $scope.listOptions.startsWith;
@@ -41,7 +52,7 @@ comicsApp.controller('CreatorsController', function($location, $q, $routeParams,
           delete params.nameStartsWith;
         }
 
-        CreatorsService.getCreatorsList(params).then(function(data) {
+        MarvelService.getList(type, params).then(function(data) {
 
           if (data.count === 0) {
             max = true;
@@ -59,9 +70,7 @@ comicsApp.controller('CreatorsController', function($location, $q, $routeParams,
       if (!busy && !max) {
         busy = true;
 
-        params = {
-          offset: 0,
-        };
+        params.offset = 0;
 
         if ($scope.listOptions.startsWith !== '') {
           params.nameStartsWith = $scope.listOptions.startsWith;
@@ -69,7 +78,7 @@ comicsApp.controller('CreatorsController', function($location, $q, $routeParams,
           delete params.nameStartsWith;
         }
 
-        CreatorsService.getCreatorsList(params).then(function(data) {
+        MarvelService.getList(type, params).then(function(data) {
           if (data.length === 0) {
             max = true;
             $scope.infiniteScrollDisabled = true;
@@ -95,6 +104,20 @@ comicsApp.controller('CreatorsController', function($location, $q, $routeParams,
 
       return id;
     };
+
+    $scope.display = function(item) {
+      var title;
+
+      if (item.title) {
+        title = item.title;
+      } else if (item.fullName) {
+        title = item.fullName;
+      } else if (item.name) {
+        title = item.name;
+      }
+
+      return title;
+    }
 }).directive('creatorsList', function() {
   return {
     restrict: 'E',

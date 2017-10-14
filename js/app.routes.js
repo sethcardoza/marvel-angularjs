@@ -5,15 +5,19 @@ comicsApp.config(['$routeProvider', '$locationProvider', function AppConfig($rou
       controller: 'CharactersController',
       templateUrl: 'templates/characters/grid.html'
     })
-    .when('/character/:id', {
+    .when('/characters/:id', {
       controller: 'CharactersController',
       templateUrl: 'templates/characters/details.html'
+    })
+    .when('/characters/belonging-to/:itemType/:itemId', {
+      controller: 'CharactersController',
+      templateUrl: 'templates/characters/grid.html'
     })
     .when('/comics', {
       controller: 'ComicsController',
       templateUrl: 'templates/comics/grid.html'
     })
-    .when('/comic/:id', {
+    .when('/comics/:id', {
       controller: 'ComicsController',
       templateUrl: 'templates/comics/details.html'
     })
@@ -25,17 +29,25 @@ comicsApp.config(['$routeProvider', '$locationProvider', function AppConfig($rou
       controller: 'CreatorsController',
       templateUrl: 'templates/creators/grid.html'
     })
-    .when('/creator/:id', {
+    .when('/creators/:id', {
       controller: 'CreatorsController',
       templateUrl: 'templates/creators/details.html'
+    })
+    .when('/creators/belonging-to/:itemType/:itemId', {
+      controller: 'CreatorsController',
+      templateUrl: 'templates/creators/grid.html'
     })
     .when('/', {
       controller: 'EventsController',
       templateUrl: 'templates/events/grid.html'
     })
-    .when('/event/:id', {
+    .when('/events/:id', {
       controller: 'EventsController',
       templateUrl: 'templates/events/details.html'
+    })
+    .when('/events/belonging-to/:itemType/:itemId', {
+      controller: 'EventsController',
+      templateUrl: 'templates/events/grid.html'
     })
     .when('/series', {
       controller: 'SeriesController',
@@ -45,13 +57,21 @@ comicsApp.config(['$routeProvider', '$locationProvider', function AppConfig($rou
       controller: 'SeriesController',
       templateUrl: 'templates/series/details.html'
     })
+    .when('/series/belonging-to/:itemType/:itemId', {
+      controller: 'SeriesController',
+      templateUrl: 'templates/series/grid.html'
+    })
     .when('/stories', {
       controller: 'StoriesController',
       templateUrl: 'templates/stories/grid.html'
     })
-    .when('/story/:id', {
+    .when('/stories/:id', {
       controller: 'StoriesController',
       templateUrl: 'templates/stories/details.html'
+    })
+    .when('/stories/belonging-to/:itemType/:itemId', {
+      controller: 'StoriesController',
+      templateUrl: 'templates/stories/grid.html'
     })
     // removed other routes ... *snip
     .otherwise({

@@ -1,21 +1,23 @@
-comicsApp.controller('SeriesController', function($location, $q, $routeParams, $scope, SeriesService) {
+comicsApp.controller('SeriesController', function($location, $q, $routeParams, $scope, MarvelService) {
     var busy = false;
     var data = null;
     var deferred = $q.defer();
     var id;
     var max = false;
     var offset = 0;
-    var params;
-    var paramsChanged = false;
+    var params = {};
     var self = this;
+    var type = 'series';
 
     $scope.series = [];
     $scope.listOptions = {};
     $scope.infiniteScrollDisabled = false;
+    $scope.currentItemType = type;
 
     id = $routeParams.id;
+    $scope.currentItemId = id;
     if (typeof id !== 'undefined' && id !== null) {
-      SeriesService.getSeries(id).then(function(data) {
+      MarvelService.getItem(type, id).then(function(data) {
         console.log(data);
         $scope.series = data;
         $scope.characters = data.characters.items;
@@ -26,13 +28,22 @@ comicsApp.controller('SeriesController', function($location, $q, $routeParams, $
       });
     }
 
+    itemType = $routeParams.itemType;
+    itemId = $routeParams.itemId;
+    if (itemType && itemId) {
+      params[itemType] = itemId;
+      MarvelService.getItem(itemType, itemId).then(function(data) {
+        console.log(data);
+        $scope.belongingTo = data;
+        $scope.belongingTo.type = itemType;
+      });
+    }
+
     $scope.loadMore = function() {
       if (!busy && !max) {
         busy = true;
 
-        params = {
-          offset: offset
-        };
+        params.offset = offset;
 
         if ($scope.listOptions.startsWith !== '') {
           params.titleStartsWith = $scope.listOptions.startsWith;
@@ -40,7 +51,7 @@ comicsApp.controller('SeriesController', function($location, $q, $routeParams, $
           delete params.titleStartsWith;
         }
 
-        SeriesService.getSeriesList(params).then(function(data) {
+        MarvelService.getList(type, params).then(function(data) {
           if (data.count === 0) {
             max = true;
             $scope.infiniteScrollDisabled = true;
@@ -57,9 +68,7 @@ comicsApp.controller('SeriesController', function($location, $q, $routeParams, $
       if (!busy && !max) {
         busy = true;
 
-        params = {
-          offset: 0,
-        };
+        params.offset = 0;
 
         if ($scope.listOptions.startsWith !== '') {
           params.titleStartsWith = $scope.listOptions.startsWith;
@@ -67,7 +76,7 @@ comicsApp.controller('SeriesController', function($location, $q, $routeParams, $
           delete params.titleStartsWith;
         }
 
-        SeriesService.getSeriesList(params).then(function(data) {
+        MarvelService.getList(type, params).then(function(data) {
           if (data.count === 0) {
             max = true;
             $scope.infiniteScrollDisabled = true;
@@ -93,6 +102,20 @@ comicsApp.controller('SeriesController', function($location, $q, $routeParams, $
 
       return id;
     };
+
+    $scope.display = function(item) {
+      var title;
+
+      if (item.title) {
+        title = item.title;
+      } else if (item.fullName) {
+        title = item.fullName;
+      } else if (item.name) {
+        title = item.name;
+      }
+
+      return title;
+    }
 }).directive('seriesList', function() {
   return {
     restrict: 'E',

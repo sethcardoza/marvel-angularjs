@@ -1,6 +1,6 @@
 <div class="character-details" ngif="character.id != null">
-    <h1><a ng-href="/character/{{character.id}}">{{character.name}}<a/></h1>
-    <a ng-href="/character/{{character.id}}"><img ng-src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="{{character.title}}"></a>
+    <h1><a ng-href="/characters/{{character.id}}">{{character.name}}<a/></h1>
+    <a ng-href="/characters/{{character.id}}"><img ng-src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="{{character.title}}"></a>
     <p>{{character.description}}</p>
     <comics-list></comics-list>
     <events-list></events-list>

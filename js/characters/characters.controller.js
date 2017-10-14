@@ -5,16 +5,17 @@ comicsApp.controller('CharactersController', function($location, $q, $routeParam
     var id;
     var max = false;
     var offset = 0;
-    var params;
-    var paramsChanged = false;
+    var params = {};
     var self = this;
     var type = 'characters';
 
     $scope.characters = [];
     $scope.listOptions = {};
     $scope.infiniteScrollDisabled = false;
+    $scope.currentItemType = type;
 
     id = $routeParams.id;
+    $scope.currentItemId = id;
     if (typeof id !== 'undefined' && id !== null) {
       MarvelService.getItem(type, id).then(function(data) {
         console.log(data);
@@ -26,13 +27,22 @@ comicsApp.controller('CharactersController', function($location, $q, $routeParam
       });
     }
 
+    itemType = $routeParams.itemType;
+    itemId = $routeParams.itemId;
+    if (itemType && itemId) {
+      params[itemType] = itemId;
+      MarvelService.getItem(itemType, itemId).then(function(data) {
+        console.log(data);
+        $scope.belongingTo = data;
+        $scope.belongingTo.type = itemType;
+      });
+    }
+
     $scope.loadMore = function() {
       if (!busy && !max) {
         busy = true;
 
-        params = {
-          offset: offset
-        };
+        params.offset = offset;
 
         if ($scope.listOptions.startsWith !== '') {
           params.nameStartsWith = $scope.listOptions.startsWith;
@@ -58,9 +68,7 @@ comicsApp.controller('CharactersController', function($location, $q, $routeParam
       if (!busy && !max) {
         busy = true;
 
-        params = {
-          offset: 0,
-        };
+        params.offset = 0;
 
         if ($scope.listOptions.startsWith !== '') {
           params.nameStartsWith = $scope.listOptions.startsWith;
@@ -94,6 +102,20 @@ comicsApp.controller('CharactersController', function($location, $q, $routeParam
 
       return id;
     };
+
+    $scope.display = function(item) {
+      var title;
+
+      if (item.title) {
+        title = item.title;
+      } else if (item.fullName) {
+        title = item.fullName;
+      } else if (item.name) {
+        title = item.name;
+      }
+
+      return title;
+    }
 }).directive('charactersList', function() {
   return {
     restrict: 'E',

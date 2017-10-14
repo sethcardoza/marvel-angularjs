@@ -7,19 +7,22 @@ comicsApp.controller('ComicsController', function($location, $q, $routeParams, $
     var itemId;
     var max = false;
     var offset = 0;
-    var params;
-    var paramsChanged = false;
+    var params = {};
     var self = this;
     var type = 'comics';
 
     $scope.comics = [];
     $scope.listOptions = {};
     $scope.infiniteScrollDisabled = false;
+    $scope.currentItemType = type;
 
     id = $routeParams.id;
+    $scope.currentItemId = id;
     if (typeof id !== 'undefined' && id !== null) {
       MarvelService.getItem(type, id).then(function(data) {
+        console.log(data);
         $scope.comic = data;
+        $scope.characters = data.characters.items;
         $scope.creators = data.creators.items;
         $scope.events = data.events.items;
         $scope.series = data.series.items;
@@ -27,19 +30,22 @@ comicsApp.controller('ComicsController', function($location, $q, $routeParams, $
       });
     }
 
+    itemType = $routeParams.itemType;
+    itemId = $routeParams.itemId;
+    if (itemType && itemId) {
+      params[itemType] = itemId;
+      MarvelService.getItem(itemType, itemId).then(function(data) {
+        console.log(data);
+        $scope.belongingTo = data;
+        $scope.belongingTo.type = itemType;
+      });
+    }
+
     $scope.loadMore = function() {
       if (!busy && !max) {
         busy = true;
 
-        params = {
-          offset: offset
-        };
-
-        itemType = $routeParams.itemType;
-        itemId = $routeParams.itemId;
-        if (itemType && itemId) {
-          params[itemType] = itemId;
-        }
+        params.offset = offset;
 
         if ($scope.listOptions.startsWith !== '') {
           params.titleStartsWith = $scope.listOptions.startsWith;
@@ -65,15 +71,7 @@ comicsApp.controller('ComicsController', function($location, $q, $routeParams, $
       if (!busy && !max) {
         busy = true;
 
-        params = {
-          offset: 0,
-        };
-
-        itemType = $routeParams.itemType;
-        itemId = $routeParams.itemId;
-        if (itemType && itemId) {
-          params[itemType] = itemId;
-        }
+        params.offset = 0;
 
         if ($scope.listOptions.startsWith !== '') {
           params.titleStartsWith = $scope.listOptions.startsWith;
@@ -107,6 +105,20 @@ comicsApp.controller('ComicsController', function($location, $q, $routeParams, $
 
       return id;
     };
+
+    $scope.display = function(item) {
+      var title;
+
+      if (item.title) {
+        title = item.title;
+      } else if (item.fullName) {
+        title = item.fullName;
+      } else if (item.name) {
+        title = item.name;
+      }
+
+      return title;
+    }
 }).directive('comicsList', function() {
   return {
     restrict: 'E',

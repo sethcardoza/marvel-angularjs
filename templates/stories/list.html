@@ -1,8 +1,8 @@
 <div ng-if="stories.length > 0">
-    <h3>Stories</h3>
+    <h3>Stories <a class="view-all" href="/stories/belonging-to/{{currentItemType}}/{{currentItemId}}">(View All)</a></h3>
     <ul class="stories">
         <li class="story-item" ng-repeat="story in stories">
-            <h3><a ng-href="/story/{{getIdFromResoureLink(story.resourceURI)}}">{{story.name}}<a/></h3>
+            <h3><a ng-href="/stories/{{getIdFromResoureLink(story.resourceURI)}}">{{story.name}}<a/></h3>
         </li>
     </ul>
 </div>

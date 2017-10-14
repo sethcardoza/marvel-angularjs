@@ -1,7 +1,8 @@
 <div class="comic-details" ngif="comic.id != null">
-    <h1><a ng-href="/comic/{{comic.id}}">{{comic.title}}<a/></h1>
-    <a ng-href="/comic/{{comic.id}}"><img ng-src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="{{comic.title}}"></a>
+    <h1><a ng-href="/comics/{{comic.id}}">{{comic.title}}<a/></h1>
+    <a ng-href="/comics/{{comic.id}}"><img ng-src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="{{comic.title}}"></a>
     <p>{{comic.description}}</p>
+    <characters-list></characters-list>
     <creators-list></creators-list>
     <events-list></events-list>
     <series-list></series-list>

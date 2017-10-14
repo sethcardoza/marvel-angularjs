@@ -1,17 +1,9 @@
-<h1>Characters</h1>
-<div class="list-options">
-    <form novalidate>
-        <label for="startsWith">
-            <input type="text" name="startsWith" id="startsWith" ng-change="filter()" ng-model="listOptions.startsWith" placeholder="Filter" value="" />
-        </label>
-    </form>
-</div>
-<div class="count">
-    <span class="total">Total: {{total}}</span>
-</div>
+<h1>Characters<belonging-to></belonging-to></h1>
+<list-options></list-options>
+<item-count></item-count>
 <ul class="characters list" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="{{infiniteScrollDisabled}}">
     <li class="character-item" ng-repeat="character in characters">
-        <a ng-href="/character/{{character.id}}"><img ng-src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="{{character.name}}"></a>
-        <h3><a ng-href="/character/{{character.id}}">{{character.name}}<a/></h3>
+        <a ng-href="/characters/{{character.id}}"><img ng-src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="{{character.name}}"></a>
+        <h3><a ng-href="/characters/{{character.id}}">{{character.name}}<a/></h3>
     </li>
 </ul>

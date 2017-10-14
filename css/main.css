@@ -74,6 +74,9 @@ a:hover {
 .list li h3 {
     font-size: 100%;
 }
+.belonging-to,
 .view-all {
     font-size: 80%;
+    font-weight: normal;
+    margin-left: 20px;
 }

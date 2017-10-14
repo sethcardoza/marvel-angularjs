@@ -1,14 +1,6 @@
-<h1>Series</h1>
-<div class="list-options">
-    <form novalidate>
-        <label for="startsWith">
-            <input type="text" name="startsWith" id="startsWith" ng-change="filter()" ng-model="listOptions.startsWith" placeholder="Filter" value="" />
-        </label>
-    </form>
-</div>
-<div class="count">
-    <span class="total">Total: {{total}}</span>
-</div>
+<h1>Series<belonging-to></belonging-to></h1>
+<list-options></list-options>
+<item-count></item-count>
 <ul class="series list" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="{{infiniteScrollDisabled}}">
     <li class="series-item" ng-repeat="item in series">
         <a ng-href="/series/{{item.id}}"><img ng-src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="{{item.title}}"></a>

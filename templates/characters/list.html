@@ -1,8 +1,8 @@
 <div ng-if="characters.length > 0">
-    <h3>Characters</h3>
+    <h3>Characters <a class="view-all" href="/characters/belonging-to/{{currentItemType}}/{{currentItemId}}">(View All)</a></h3>
     <ul class="characters">
         <li class="character-item" ng-repeat="character in characters">
-            <h3><a ng-href="/character/{{getIdFromResoureLink(character.resourceURI)}}">{{character.name}}<a/></h3>
+            <h3><a ng-href="/characters/{{getIdFromResoureLink(character.resourceURI)}}">{{character.name}}<a/></h3>
         </li>
     </ul>
 </div>

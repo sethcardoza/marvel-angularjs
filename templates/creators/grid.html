@@ -1,17 +1,9 @@
-<h1>Creators</h1>
-<div class="list-options">
-    <form novalidate>
-        <label for="startsWith">
-            <input type="text" name="startsWith" id="startsWith" ng-change="filter()" ng-model="listOptions.startsWith" placeholder="Filter" value="" />
-        </label>
-    </form>
-</div>
-<div class="count">
-    <span class="total">Total: {{total}}</span>
-</div>
+<h1>Creators<belonging-to></belonging-to></h1>
+<list-options></list-options>
+<item-count></item-count>
 <ul class="creators list" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="{{infiniteScrollDisabled}}">
     <li class="creator-item" ng-repeat="creator in creators">
-        <a ng-href="/creator/{{creator.id}}"><img ng-src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}" alt="{{creator.fullName}}"></a>
-        <h3><a ng-href="/creator/{{creator.id}}">{{creator.fullName}}<a/></h3>
+        <a ng-href="/creators/{{creator.id}}"><img ng-src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}" alt="{{creator.fullName}}"></a>
+        <h3><a ng-href="/creators/{{creator.id}}">{{creator.fullName}}<a/></h3>
     </li>
 </ul>

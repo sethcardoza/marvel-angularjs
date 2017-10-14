@@ -1,8 +1,8 @@
 <div ng-if="creators.length > 0">
-    <h3>Creators</h3>
+    <h3>Creators <a class="view-all" href="/creators/belonging-to/{{currentItemType}}/{{currentItemId}}">(View All)</a></h3>
     <ul class="creators">
         <li class="creator-item" ng-repeat="creator in creators">
-            <h3><a ng-href="/creator/{{getIdFromResoureLink(creator.resourceURI)}}">{{creator.name}}<a/></h3>
+            <h3><a ng-href="/creators/{{getIdFromResoureLink(creator.resourceURI)}}">{{creator.name}}<a/></h3>
         </li>
     </ul>
 </div>
