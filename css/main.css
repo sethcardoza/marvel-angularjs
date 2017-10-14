@@ -78,5 +78,7 @@ a:hover {
 .view-all {
     font-size: 80%;
     font-weight: normal;
+}
+.belonging-to {
     margin-left: 20px;
 }

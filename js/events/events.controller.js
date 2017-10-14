@@ -20,10 +20,16 @@ comicsApp.controller('EventsController', function($location, $q, $routeParams, $
       MarvelService.getItem(type, id).then(function(data) {
         console.log(data);
         $scope.event = data;
+        $scope.characters = data.characters.items;
+        $scope.charactersTotal = data.characters.available;
         $scope.comics = data.comics.items;
+        $scope.comicsTotal = data.comics.available;
         $scope.creators = data.creators.items;
+        $scope.creatorsTotal = data.creators.available;
         $scope.series = data.series.items;
+        $scope.seriesTotal = data.series.available;
         $scope.stories = data.stories.items;
+        $scope.storiesTotal = data.stories.available;
       });
     }
 

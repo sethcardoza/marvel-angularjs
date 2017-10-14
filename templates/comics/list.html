@@ -1,5 +1,5 @@
 <div ng-if="comics.length > 0">
-    <h3>Comics <a class="view-all" href="/comics/belonging-to/{{currentItemType}}/{{currentItemId}}">(View All)</a></h3>
+    <h3>Comics ({{comicsTotal}}) - <a class="view-all" href="/comics/belonging-to/{{currentItemType}}/{{currentItemId}}">View All</a></h3>
     <ul class="comics">
         <li class="comic-item" ng-repeat="comic in comics">
             <h3><a ng-href="/comics/{{getIdFromResoureLink(comic.resourceURI)}}">{{comic.name}}<a/></h3>

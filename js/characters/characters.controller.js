@@ -21,9 +21,13 @@ comicsApp.controller('CharactersController', function($location, $q, $routeParam
         console.log(data);
         $scope.character = data;
         $scope.comics = data.comics.items;
+        $scope.comicsTotal = data.comics.available;
         $scope.events = data.events.items;
+        $scope.eventsTotal = data.events.available;
         $scope.series = data.series.items;
+        $scope.seriesTotal = data.series.available;
         $scope.stories = data.stories.items;
+        $scope.storiesTotal = data.stories.available;
       });
     }
 

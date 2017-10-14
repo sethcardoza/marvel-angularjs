@@ -1,5 +1,5 @@
 <div ng-if="series.length > 0">
-    <h3>Series <a class="view-all" href="/series/belonging-to/{{currentItemType}}/{{currentItemId}}">(View All)</a></h3>
+    <h3>Series ({{seriesTotal}}) - <a class="view-all" href="/series/belonging-to/{{currentItemType}}/{{currentItemId}}">View All</a></h3>
     <ul class="series">
         <li class="series-item" ng-repeat="item in series">
             <h3><a ng-href="/series/{{getIdFromResoureLink(item.resourceURI)}}">{{item.name}}<a/></h3>
