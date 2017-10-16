@@ -20,14 +20,14 @@ comicsApp.controller('CharactersController', function($location, $q, $routeParam
       MarvelService.getItem(type, id).then(function(data) {
         console.log(data);
         $scope.character = data;
-        $scope.comics = data.comics.items;
-        $scope.comicsTotal = data.comics.available;
-        $scope.events = data.events.items;
-        $scope.eventsTotal = data.events.available;
-        $scope.series = data.series.items;
-        $scope.seriesTotal = data.series.available;
-        $scope.stories = data.stories.items;
-        $scope.storiesTotal = data.stories.available;
+        $scope.comics = data.comics;
+        $scope.comicsTotal = data.comicsTotal;
+        $scope.events = data.events;
+        $scope.eventsTotal = data.eventsTotal;
+        $scope.series = data.series;
+        $scope.seriesTotal = data.seriesTotal;
+        $scope.stories = data.stories;
+        $scope.storiesTotal = data.storiesTotal;
       });
     }
 
@@ -60,7 +60,7 @@ comicsApp.controller('CharactersController', function($location, $q, $routeParam
             max = true;
             $scope.infiniteScrollDisabled = true;
           }
-          $scope.characters = $scope.characters.concat(data.results);
+          $scope.characters = $scope.characters.concat(data.items);
           $scope.total = data.total;
           offset += data.count;
           busy = false;
@@ -85,41 +85,13 @@ comicsApp.controller('CharactersController', function($location, $q, $routeParam
             max = true;
             $scope.infiniteScrollDisabled = true;
           }
-          $scope.characters = data.results;
+          $scope.characters = data.items;
           $scope.total = data.total;
           offset = data.count;
           busy = false;
         });
       }
     };
-
-    $scope.formatDate = function(date){
-      var dateOut = new Date(date);
-      return dateOut;
-    };
-
-    $scope.getIdFromResoureLink = function(link) {
-      var id;
-      var parts = link.split('/');
-
-      id = parts.pop();
-
-      return id;
-    };
-
-    $scope.display = function(item) {
-      var title;
-
-      if (item.title) {
-        title = item.title;
-      } else if (item.fullName) {
-        title = item.fullName;
-      } else if (item.name) {
-        title = item.name;
-      }
-
-      return title;
-    }
 }).directive('charactersList', function() {
   return {
     restrict: 'E',

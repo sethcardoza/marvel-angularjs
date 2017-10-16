@@ -11,6 +11,9 @@ a:hover {
     color: #DB0C12;
     text-decoration: underline;
 }
+img {
+    width: 25px !important;
+}
 .container {
     background: #111;
     margin: 0 auto;

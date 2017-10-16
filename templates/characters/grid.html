@@ -3,7 +3,7 @@
 <item-count></item-count>
 <ul class="characters list" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="{{infiniteScrollDisabled}}">
     <li class="character-item" ng-repeat="character in characters">
-        <a ng-href="/characters/{{character.id}}"><img ng-src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="{{character.name}}"></a>
-        <h3><a ng-href="/characters/{{character.id}}">{{character.name}}<a/></h3>
+        <a ng-if="character.thumbnail" ng-href="/characters/{{character.id}}"><img ng-src="{{character.thumbnail}}" alt="{{character.title}}"></a>
+        <h3><a ng-href="/characters/{{character.id}}">{{character.title}}<a/></h3>
     </li>
 </ul>

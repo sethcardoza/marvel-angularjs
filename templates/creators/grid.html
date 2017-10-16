@@ -3,7 +3,7 @@
 <item-count></item-count>
 <ul class="creators list" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="{{infiniteScrollDisabled}}">
     <li class="creator-item" ng-repeat="creator in creators">
-        <a ng-href="/creators/{{creator.id}}"><img ng-src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}" alt="{{creator.fullName}}"></a>
-        <h3><a ng-href="/creators/{{creator.id}}">{{creator.fullName}}<a/></h3>
+        <a ng-if="creator.thumbnail" ng-href="/creators/{{creator.id}}"><img ng-src="{{creator.thumbnail}}" alt="{{creator.title}}"></a>
+        <h3><a ng-href="/creators/{{creator.id}}">{{creator.title}}<a/></h3>
     </li>
 </ul>

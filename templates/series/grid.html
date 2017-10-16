@@ -3,7 +3,7 @@
 <item-count></item-count>
 <ul class="series list" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="{{infiniteScrollDisabled}}">
     <li class="series-item" ng-repeat="item in series">
-        <a ng-href="/series/{{item.id}}"><img ng-src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="{{item.title}}"></a>
+        <a ng-if="item.thumbnail" ng-href="/series/{{item.id}}"><img ng-src="{{item.thumbnail}}" alt="{{item.title}}"></a>
         <h3><a ng-href="/item/{{item.id}}">{{item.title}}<a/></h3>
     </li>
 </ul>

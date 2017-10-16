@@ -3,7 +3,7 @@
 <item-count></item-count>
 <ul class="events list" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="{{infiniteScrollDisabled}}">
     <li class="event-item" ng-repeat="event in events">
-        <a ng-href="/events/{{event.id}}"><img ng-src="{{event.thumbnail.path}}.{{event.thumbnail.extension}}" alt="{{event.title}}"></a>
+        <a ng-if="event.thumbnail" ng-href="/events/{{event.id}}"><img ng-src="{{event.thumbnail}}" alt="{{event.title}}"></a>
         <h3><a ng-href="/events/{{event.id}}">{{event.title}}<a/></h3>
     </li>
 </ul>

@@ -1,6 +1,6 @@
 <div class="series-details" ngif="series.id != null">
     <h1><a ng-href="/series/{{series.id}}">{{series.title}}<a/></h1>
-    <a ng-href="/series/{{series.id}}"><img ng-src="{{series.thumbnail.path}}.{{series.thumbnail.extension}}" alt="{{series.title}}"></a>
+    <a ng-if="series.thumbnail" ng-href="/series/{{series.id}}"><img ng-src="{{series.thumbnail}}" alt="{{series.title}}"></a>
     <p>{{series.description}}</p>
     <p class="run">
         <span class="start">{{series.startYear}}</span> -

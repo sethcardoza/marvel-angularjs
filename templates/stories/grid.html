@@ -3,7 +3,7 @@
 <item-count></item-count>
 <ul class="stories list" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="{{infiniteScrollDisabled}}">
     <li class="story-item" ng-repeat="story in stories">
-        <a ng-href="/stories/{{story.id}}"><img ng-src="{{story.thumbnail.path}}.{{story.thumbnail.extension}}" alt="{{story.title}}"></a>
+        <a ng-if="story.thumbnail" ng-href="/stories/{{story.id}}"><img ng-src="{{story.thumbnail}}" alt="{{story.title}}"></a>
         <h3><a ng-href="/stories/{{story.id}}">{{story.title}}<a/></h3>
     </li>
 </ul>

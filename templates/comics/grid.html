@@ -3,7 +3,7 @@
 <item-count></item-count>
 <ul class="comics list" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="{{infiniteScrollDisabled}}">
     <li class="comic-item" ng-repeat="comic in comics">
-        <a ng-href="/comics/{{comic.id}}"><img ng-src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="{{comic.title}}"></a>
+        <a ng-if="comic.thumbnail" ng-href="/comics/{{comic.id}}"><img ng-src="{{comic.thumbnail}}" alt="{{comic.title}}"></a>
         <h3><a ng-href="/comics/{{comic.id}}">{{comic.title}}<a/></h3>
     </li>
 </ul>

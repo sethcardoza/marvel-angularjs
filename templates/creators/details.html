@@ -1,6 +1,6 @@
 <div class="creator-details" ngif="creator.id != null">
-    <h1><a ng-href="/creators/{{creator.id}}">{{creator.fullName}}<a/></h1>
-    <a ng-href="/creators/{{creator.id}}"><img ng-src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}" alt="{{creator.fullName}}"></a>
+    <h1><a ng-href="/creators/{{creator.id}}">{{creator.title}}<a/></h1>
+    <a ng-if="creator.thumbnail" ng-href="/creators/{{creator.id}}"><img ng-if="creator.thumbnail" ng-src="{{creator.thumbnail}}" alt="{{creator.title}}"></a>
     <p>{{creator.description}}</p>
     <comics-list></comics-list>
     <events-list></events-list>

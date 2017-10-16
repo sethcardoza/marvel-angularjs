@@ -20,16 +20,16 @@ comicsApp.controller('StoriesController', function($location, $q, $routeParams, 
       MarvelService.getItem(type, id).then(function(data) {
         console.log(data);
         $scope.story = data;
-        $scope.characters = data.characters.items;
-        $scope.charactersTotal = data.characters.available;
-        $scope.comics = data.comics.items;
-        $scope.comicsTotal = data.comics.available;
-        $scope.creators = data.creators.items;
-        $scope.creatorsTotal = data.creators.available;
-        $scope.events = data.events.items;
-        $scope.eventsTotal = data.events.available;
-        $scope.series = data.series.items;
-        $scope.seriesTotal = data.series.available;
+        $scope.characters = data.characters;
+        $scope.charactersTotal = data.charactersTotal;
+        $scope.comics = data.comics;
+        $scope.comicsTotal = data.comicsTotal;
+        $scope.creators = data.creators;
+        $scope.creatorsTotal = data.creatorsTotal;
+        $scope.events = data.events;
+        $scope.eventsTotal = data.eventsTotal;
+        $scope.series = data.series;
+        $scope.seriesTotal = data.seriesTotal;
       });
     }
 
@@ -62,7 +62,7 @@ comicsApp.controller('StoriesController', function($location, $q, $routeParams, 
             max = true;
             $scope.infiniteScrollDisabled = true;
           }
-          $scope.stories = $scope.stories.concat(data.results);
+          $scope.stories = $scope.stories.concat(data.items);
           $scope.total = data.total;
           offset += data.count;
           busy = false;
@@ -87,41 +87,13 @@ comicsApp.controller('StoriesController', function($location, $q, $routeParams, 
             max = true;
             $scope.infiniteScrollDisabled = true;
           }
-          $scope.stories = data.results;
+          $scope.stories = data.items;
           $scope.total = data.total;
           offset = data.count;
           busy = false;
         });
       }
     };
-
-    $scope.formatDate = function(date){
-      var dateOut = new Date(date);
-      return dateOut;
-    };
-
-    $scope.getIdFromResoureLink = function(link) {
-      var id;
-      var parts = link.split('/');
-
-      id = parts.pop();
-
-      return id;
-    };
-
-    $scope.display = function(item) {
-      var title;
-
-      if (item.title) {
-        title = item.title;
-      } else if (item.fullName) {
-        title = item.fullName;
-      } else if (item.name) {
-        title = item.name;
-      }
-
-      return title;
-    }
 }).directive('storiesList', function() {
   return {
     restrict: 'E',
