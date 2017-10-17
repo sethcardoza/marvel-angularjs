@@ -1,5 +1,4 @@
-comicsApp.config(['$routeProvider', '$locationProvider', function AppConfig($routeProvider, $locationProvider) {
-
+comicsApp.config(['$routeProvider', '$locationProvider', function AppConfig ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/characters', {
       controller: 'CharactersController',
@@ -76,11 +75,9 @@ comicsApp.config(['$routeProvider', '$locationProvider', function AppConfig($rou
     // removed other routes ... *snip
     .otherwise({
       redirectTo: '/'
-    }
-  );
+    });
 
   // enable html5Mode for pushstate ('#'-less URLs)
   $locationProvider.html5Mode(true);
   $locationProvider.hashPrefix('!');
-
 }]);

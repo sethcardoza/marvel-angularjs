@@ -5,7 +5,7 @@ comicsApp.factory('NormalizerService', [
   'EventsNormalizerService',
   'SeriesNormalizerService',
   'StoriesNormalizerService',
-  function(
+  function (
     CharactersNormalizerService,
     ComicsNormalizerService,
     CreatorsNormalizerService,
@@ -15,7 +15,7 @@ comicsApp.factory('NormalizerService', [
   ) {
     var vm = this;
 
-    function getIdFromResourceUri(link) {
+    function getIdFromResourceUri (link) {
       var id;
       var parts;
 
@@ -25,13 +25,16 @@ comicsApp.factory('NormalizerService', [
       return id;
     }
 
-    vm.normalize = function(type, data) {
+    vm.normalize = function (type, data) {
       var character;
       var characters;
       var comic;
       var comics;
+      var creator;
+      var creators;
       var eventItem;
       var events;
+      var i;
       var item = {};
       var seriesItem;
       var series;
@@ -73,7 +76,7 @@ comicsApp.factory('NormalizerService', [
       item.characters = [];
       if (data.characters) {
         characters = data.characters.items;
-        for (var i = 0; i < characters.length; i++) {
+        for (i = 0; i < characters.length; i++) {
           character = {};
 
           character.id = getIdFromResourceUri(characters[i].resourceURI);
@@ -86,7 +89,7 @@ comicsApp.factory('NormalizerService', [
       item.comics = [];
       if (data.comics) {
         comics = data.comics.items;
-        for (var i = 0; i < comics.length; i++) {
+        for (i = 0; i < comics.length; i++) {
           comic = {};
           comic.id = getIdFromResourceUri(comics[i].resourceURI);
           comic.title = comics[i].name;
@@ -98,7 +101,7 @@ comicsApp.factory('NormalizerService', [
       item.creators = [];
       if (data.creators) {
         creators = data.creators.items;
-        for (var i = 0; i < creators.length; i++) {
+        for (i = 0; i < creators.length; i++) {
           creator = {};
           creator.id = getIdFromResourceUri(creators[i].resourceURI);
           creator.title = creators[i].name;
@@ -107,11 +110,10 @@ comicsApp.factory('NormalizerService', [
         item.creatorsTotal = data.creators.available;
       }
 
-
       item.events = [];
       if (data.events) {
         events = data.events.items;
-        for (var i = 0; i < events.length; i++) {
+        for (i = 0; i < events.length; i++) {
           eventItem = {};
           eventItem.id = getIdFromResourceUri(events[i].resourceURI);
           eventItem.title = events[i].name;
@@ -128,7 +130,7 @@ comicsApp.factory('NormalizerService', [
           // comics belong to a single series
           series = [data.series];
         }
-        for (var i = 0; i < series.length; i++) {
+        for (i = 0; i < series.length; i++) {
           seriesItem = {};
           seriesItem.id = getIdFromResourceUri(series[i].resourceURI);
           seriesItem.title = series[i].name;
@@ -140,7 +142,7 @@ comicsApp.factory('NormalizerService', [
       item.stories = [];
       if (data.stories) {
         stories = data.stories.items;
-        for (var i = 0; i < stories.length; i++) {
+        for (i = 0; i < stories.length; i++) {
           story = {};
           story.id = getIdFromResourceUri(stories[i].resourceURI);
           story.title = stories[i].name;
@@ -150,7 +152,7 @@ comicsApp.factory('NormalizerService', [
       }
 
       return item;
-    }
+    };
 
     return vm;
   }

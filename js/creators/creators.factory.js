@@ -1,8 +1,8 @@
-comicsApp.factory('CreatorsService', ['$http', '$q', 'MarvelService', function($http, $q, MarvelService) {
+comicsApp.factory('CreatorsService', ['$http', '$q', 'MarvelService', function ($http, $q, MarvelService) {
   var basePath = '/creators';
   var vm = this;
 
-  function buildUrl(path) {
+  function buildUrl (path) {
     var url = '';
 
     url = MarvelService.baseUrl +
@@ -11,7 +11,7 @@ comicsApp.factory('CreatorsService', ['$http', '$q', 'MarvelService', function($
 
     return url;
   }
-  function getParams(additionalParams) {
+  function getParams (additionalParams) {
     var defaultParams = {
       'apikey': MarvelService.key
     };
@@ -22,41 +22,42 @@ comicsApp.factory('CreatorsService', ['$http', '$q', 'MarvelService', function($
     return params;
   }
 
-  vm.getCreatorsList = function(additionalParams) {
+  vm.getCreatorsList = function (additionalParams) {
+    var params;
     var url = buildUrl(basePath);
 
     params = getParams(additionalParams);
 
     return $http.get(url, {params: params})
       .then(
-        function(response) {
+        function (response) {
           return response.data.data;
         },
-        function(errResponse) {
+        function (errResponse) {
           console.error('Error while fetching creators');
           console.log(errResponse);
           return errResponse;
         }
-    );
+      );
   };
 
-  vm.getCreator = function(id) {
+  vm.getCreator = function (id) {
+    var params;
     var url = buildUrl(basePath + '/' + id);
 
     params = getParams();
 
     return $http.get(url, {params: params})
       .then(
-        function(response) {
+        function (response) {
           return response.data.data.results[0];
         },
-        function(errResponse) {
+        function (errResponse) {
           console.error('Error while fetching creator: ' + id);
           return errResponse;
         }
-    );
+      );
   };
 
   return vm;
-
 }]);

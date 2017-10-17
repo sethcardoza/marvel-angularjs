@@ -1,0 +1,29 @@
+{
+  "name": "marvel-angularjs",
+  "version": "1.0.0",
+  "description": "tiny app to play with angularjs and the marvel comics api",
+  "main": "index.html",
+  "dependencies": {
+    "eslint": "^4.9.0"
+  },
+  "devDependencies": {
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://sethcardoza@github.com/sethcardoza/marvel-angularjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sethcardoza/marvel-angularjs/issues"
+  },
+  "homepage": "https://github.com/sethcardoza/marvel-angularjs#readme"
+}
