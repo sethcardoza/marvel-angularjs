@@ -6,6 +6,9 @@
         "comicsApp": true
     },
     "rules": {
+        "no-unused-vars": ["warn", {
+            "varsIgnorePattern": "comicsApp"
+        }],
         "semi": ["error", "always"]
     }
 }

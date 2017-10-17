@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('comicsApp', ['ngRoute', 'infinite-scroll'])
+var comicsApp = angular.module('comicsApp', ['ngRoute', 'infinite-scroll'])
   // allow DI for use in controllers, unit tests
   .constant('_', window._)
   // use in views, ng-repeat="x in _.range(3)"
