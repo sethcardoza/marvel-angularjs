@@ -3,7 +3,7 @@
     "globals": {
         "_": true,
         "angular": true,
-        "comicsApp": true
+        "marvelApp": true
     },
     "rules": {
         "no-unused-vars": ["warn", {
