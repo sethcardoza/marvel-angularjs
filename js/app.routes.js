@@ -1,4 +1,4 @@
-comicsApp.config(['$routeProvider', '$locationProvider', function AppConfig ($routeProvider, $locationProvider) {
+marvelApp.config(['$routeProvider', '$locationProvider', function AppConfig ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/characters', {
       controller: 'CharactersController',

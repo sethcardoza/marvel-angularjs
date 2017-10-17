@@ -1,4 +1,4 @@
-comicsApp.factory('NormalizerService', [
+marvelApp.factory('NormalizerService', [
   'CharactersNormalizerService',
   'ComicsNormalizerService',
   'CreatorsNormalizerService',

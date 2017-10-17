@@ -1,4 +1,4 @@
-comicsApp.factory('MarvelService', ['$http', 'NormalizerService', 'MARVEL_API_KEY', function ($http, NormalizerService, MARVEL_API_KEY) {
+marvelApp.factory('MarvelService', ['$http', 'NormalizerService', 'MARVEL_API_KEY', function ($http, NormalizerService, MARVEL_API_KEY) {
   var vm = this;
   var baseUrl = 'http://gateway.marvel.com';
   var basePath = '/v1/public/';

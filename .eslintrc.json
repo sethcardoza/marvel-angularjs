@@ -7,7 +7,7 @@
     },
     "rules": {
         "no-unused-vars": ["warn", {
-            "varsIgnorePattern": "comicsApp"
+            "varsIgnorePattern": "marvelApp"
         }],
         "semi": ["error", "always"]
     }
