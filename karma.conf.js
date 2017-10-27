@@ -2,8 +2,16 @@
 module.exports = function(config) {
   config.set({
     files: [
+      'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js',
+      'https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js',
+      'https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js',
+      'https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js',
       'js/**/*.js',
-      'test/**/*.js'
+      'test/**/*.js',
+      {
+        pattern: 'js/app.config.default.js',
+        watched: false
+      },
     ],
 
     // coverage reporter generates the coverage
