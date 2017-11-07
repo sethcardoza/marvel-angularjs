@@ -15,7 +15,14 @@ a:hover {
 footer {
     background: #111;
     margin: 0 auto;
-    width: 960px;
+    width: 100%;
+}
+@media screen and (min-width: 960px) {
+    .container,
+    .list,
+    footer {
+        width: 960px;
+    }
 }
 .content {
     margin: 0 10px;
@@ -28,9 +35,14 @@ footer {
     padding: 0;
 }
 .main ul li {
-    flex: 0 1 16.66%;
+    flex: 0 1 100%;
     text-align: center;
     width: auto;
+}
+@media screen and (min-width: 960px) {
+    .main ul li {
+        flex: 0 1 16.66%;
+    }
 }
 .main ul li a {
     background-color: #EB1C22;
@@ -59,13 +71,18 @@ footer {
     margin: 0;
     padding: 0;
     position: relative;
-    width: 960px;
+    width: 100%;
 }
 .list li {
-    flex: 0 1 22%;
+    flex: 0 1 100%;
     margin: 10px;
     padding: 0;
     width: auto;
+}
+@media screen and (min-width: 960px) {
+    .list li {
+        flex: 0 1 22%;
+    }
 }
 .list li h3,
 .list li img,
