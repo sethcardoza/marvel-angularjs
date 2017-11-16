@@ -1,4 +1,6 @@
 (function() {
+  'use strict';
+
   angular
   .module('marvelApp')
   .factory('MarvelService', ['$http', 'NormalizerService', 'MARVEL_API_KEY', function ($http, NormalizerService, MARVEL_API_KEY) {

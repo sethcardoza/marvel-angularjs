@@ -1,4 +1,7 @@
-angular
+(function() {
+  'use strict';
+
+  angular
   .module('marvelApp.creators')
   .controller('CreatorsController', function ($location, $routeParams, $scope, MarvelService) {
     var busy = false;
@@ -98,3 +101,4 @@ angular
       templateUrl: 'templates/creators/list.html'
     };
   });
+})();

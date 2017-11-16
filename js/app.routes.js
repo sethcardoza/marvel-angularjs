@@ -1,4 +1,6 @@
 (function() {
+  'use strict';
+
   angular
   .module('marvelApp')
   .config(['$routeProvider', '$locationProvider', function AppConfig ($routeProvider, $locationProvider) {

@@ -1,4 +1,6 @@
 (function() {
+  'use strict';
+
   angular
   .module('marvelApp.characters')
   .factory('CharactersNormalizerService', [function () {

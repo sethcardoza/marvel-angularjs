@@ -1,4 +1,7 @@
-angular
+(function() {
+  'use strict';
+
+  angular
   .module('marvelApp.stories')
   .factory('StoriesNormalizerService', [function () {
     var vm = this;
@@ -19,3 +22,4 @@ angular
 
     return vm;
   }]);
+})();

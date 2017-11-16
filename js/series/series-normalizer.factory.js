@@ -1,4 +1,7 @@
-angular
+(function() {
+  'use strict';
+
+  angular
   .module('marvelApp.series')
   .factory('SeriesNormalizerService', [function () {
     var vm = this;
@@ -30,3 +33,4 @@ angular
 
     return vm;
   }]);
+})();

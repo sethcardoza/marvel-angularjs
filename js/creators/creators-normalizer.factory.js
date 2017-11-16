@@ -1,4 +1,7 @@
-angular
+(function() {
+  'use strict';
+
+  angular
   .module('marvelApp.creators')
   .factory('CreatorsNormalizerService', [function () {
     var vm = this;
@@ -19,3 +22,4 @@ angular
 
     return vm;
   }]);
+})();

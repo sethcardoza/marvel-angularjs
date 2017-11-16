@@ -1,4 +1,7 @@
-angular
+(function() {
+  'use strict';
+
+  angular
   .module('marvelApp.comics')
   .controller('ComicsController', function ($location, $routeParams, $scope, MarvelService) {
     var busy = false;
@@ -101,3 +104,4 @@ angular
       templateUrl: 'templates/comics/list.html'
     };
   });
+})();

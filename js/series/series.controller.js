@@ -1,4 +1,7 @@
-angular
+(function() {
+  'use strict';
+
+  angular
   .module('marvelApp.series')
   .controller('SeriesController', function ($location, $routeParams, $scope, MarvelService) {
     var busy = false;
@@ -100,3 +103,4 @@ angular
       templateUrl: 'templates/series/list.html'
     };
   });
+})();

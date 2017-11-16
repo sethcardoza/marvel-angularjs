@@ -1,4 +1,7 @@
-angular
+(function() {
+  'use strict';
+
+  angular
   .module('marvelApp.events')
   .factory('EventsNormalizerService', [function () {
     var vm = this;
@@ -27,3 +30,4 @@ angular
 
     return vm;
   }]);
+})();
