@@ -43,14 +43,12 @@
       return $http.get(url, {params: params})
         .then(
           function (response) {
-            console.log(response.data.data);
             var data = {};
             var items = [];
             var item;
 
             for (var i = 0; i < response.data.data.results.length; i++) {
               item = NormalizerService.normalize(type, response.data.data.results[i]);
-              console.log(item);
               items.push(item);
             }
             data.items = items;

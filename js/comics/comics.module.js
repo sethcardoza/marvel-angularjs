@@ -1,3 +1,5 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('marvelApp.comics', []);
+  angular.module('marvelApp.comics', []);
+})();
