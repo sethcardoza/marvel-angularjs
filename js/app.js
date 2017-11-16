@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var marvelApp = angular.module('marvelApp', [
+  angular.module('marvelApp', [
     'ngRoute',
     'infinite-scroll',
     'marvelApp.characters',

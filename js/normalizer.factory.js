@@ -1,5 +1,7 @@
 (function() {
-  marvelApp.factory('NormalizerService', [
+  angular
+  .module('marvelApp')
+  .factory('NormalizerService', [
     'CharactersNormalizerService',
     'ComicsNormalizerService',
     'CreatorsNormalizerService',

@@ -1,5 +1,7 @@
 (function() {
-  marvelApp.config(['$routeProvider', '$locationProvider', function AppConfig ($routeProvider, $locationProvider) {
+  angular
+  .module('marvelApp')
+  .config(['$routeProvider', '$locationProvider', function AppConfig ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/characters', {
         controller: 'CharactersController',
