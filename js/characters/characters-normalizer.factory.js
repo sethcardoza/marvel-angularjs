@@ -1,4 +1,5 @@
-angular
+(function() {
+  angular
   .module('marvelApp.characters')
   .factory('CharactersNormalizerService', [function () {
     var vm = this;
@@ -19,3 +20,4 @@ angular
 
     return vm;
   }]);
+})();

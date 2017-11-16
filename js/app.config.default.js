@@ -1,2 +1,5 @@
-angular.module('marvelApp')
-  .constant('MARVEL_API_KEY', '--YOUR-PUBLIC-KEY-HERE--');
+(function() {
+  angular.module('marvelApp')
+    .constant('MARVEL_API_KEY', '--YOUR-PUBLIC-KEY-HERE--');
+})();
+
