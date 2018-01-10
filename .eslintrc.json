@@ -3,9 +3,15 @@
     "globals": {
         "_": true,
         "angular": true,
-        "marvelApp": true
+        "marvelApp": true,
+        "describe": true,
+        "beforeEach": true,
+        "inject": true,
+        "it": true,
+        "expect": true
     },
     "rules": {
+        "indent": ["error", 2],
         "no-unused-vars": ["warn", {
             "varsIgnorePattern": "marvelApp"
         }],

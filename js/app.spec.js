@@ -1,5 +1,3 @@
-describe("testing", function() {
-  // individual tests go here
-  // beforeEach(angular.module('marvelApp'));
+describe('testing', function () {
 
 });

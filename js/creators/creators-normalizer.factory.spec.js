@@ -5,8 +5,8 @@ describe('CreatorsNormalizerFactory', function () {
 
   beforeEach(angular.mock.module('marvelApp.creators'));
 
-  beforeEach(inject(function (_CreatorsNormalizerService_){
-    CreatorsNormalizerFactory = _CreatorsNormalizerService_
+  beforeEach(inject(function (_CreatorsNormalizerService_) {
+    CreatorsNormalizerFactory = _CreatorsNormalizerService_;
   }));
 
   it('should be defined', function () {
@@ -33,7 +33,7 @@ describe('CreatorsNormalizerFactory', function () {
       expect(actual).toEqual(expected);
     });
 
-    it('should return normalized data from bad data', function() {
+    it('should return normalized data from bad data', function () {
       expected = {};
       dataMock = {
         name: 'This is the title'

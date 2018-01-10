@@ -1,19 +1,19 @@
-describe('CharactersNormalizerFactory', function() {
+describe('CharactersNormalizerFactory', function () {
   beforeEach(module('marvelApp'));
 
   var CharactersNormalizerFactory;
 
   beforeEach(angular.mock.module('marvelApp.characters'));
 
-  beforeEach(inject(function(_CharactersNormalizerService_){
-    CharactersNormalizerFactory = _CharactersNormalizerService_
+  beforeEach(inject(function (_CharactersNormalizerService_) {
+    CharactersNormalizerFactory = _CharactersNormalizerService_;
   }));
 
-  it('should be defined', function() {
+  it('should be defined', function () {
     expect(CharactersNormalizerFactory).toBeDefined();
   });
 
-  describe('.normalize()', function() {
+  describe('.normalize()', function () {
     var actual;
     var expected = {
       description: 'This is the description',
@@ -24,16 +24,16 @@ describe('CharactersNormalizerFactory', function() {
       name: 'This is the title'
     };
 
-    it('should exist', function() {
+    it('should exist', function () {
       expect(CharactersNormalizerFactory.normalize).toBeDefined();
     });
 
-    it('should return normalized data', function() {
+    it('should return normalized data', function () {
       actual = CharactersNormalizerFactory.normalize(dataMock);
       expect(actual).toEqual(expected);
     });
 
-    it('should return normalized data from bad data', function() {
+    it('should return normalized data from bad data', function () {
       expected = {};
       dataMock = {
         title: 'This is the title'
