@@ -18,11 +18,11 @@
       }
 
       if (data.start) {
-        eventItem.start = new Date(data.start);
+        eventItem.start = Date.parse(data.start);
       }
 
       if (data.end) {
-        eventItem.end = new Date(data.end);
+        eventItem.end = Date.parse(data.end);
       }
 
       return eventItem;

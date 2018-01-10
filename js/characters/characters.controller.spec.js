@@ -2,14 +2,21 @@ describe("CharactersController", function() {
   beforeEach(module('marvelApp'));
 
   var $controller;
+  var $rootScope;
+  var CharactersController;
 
-  beforeEach(inject(function(_$controller_){
+  beforeEach(angular.mock.module('marvelApp.characters'));
+
+  beforeEach(inject(function(_$controller_, _$rootScope_){
     // The injector unwraps the underscores (_) from around the parameter names when matching
     $controller = _$controller_;
+    $rootScope = _$rootScope_
+    CharactersController = $controller('CharactersController', {
+      $scope: $rootScope
+    });
   }));
 
-  it('Expects this test to be true', function() {
-    console.log('in here');
-    expect(true).toBe(true);
+  it('should be defined', function() {
+    expect(CharactersController).toBeDefined();
   });
 });

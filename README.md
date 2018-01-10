@@ -9,3 +9,9 @@ ES Lint is only required for development, as is Karma (which isn't fully setup y
 * Some fancy animations, because, why not.
 * Unit tests
 * Travis CI
+
+## Dev Commants
+
+karma start
+
+node_modules/.bin/eslint js/*

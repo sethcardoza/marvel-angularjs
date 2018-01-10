@@ -22,6 +22,7 @@ module.exports = function(config) {
       'https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-mocks.js',
       'https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js',
       'https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js',
+      'vendor/ng-infinite-scroll-1.0.0.min.js',
       'js/app.js',
       'js/app.config.js',
       'js/app.routes.js',
@@ -45,7 +46,14 @@ module.exports = function(config) {
       'js/stories/stories.module.js',
       'js/stories/stories.controller.js',
       'js/stories/stories-normalizer.factory.js',
-      'js/characters/characters.controller.spec.js'
+      'js/marvel.factory.spec.js',
+      'js/characters/characters-normalizer.factory.spec.js',
+      'js/characters/characters.controller.spec.js',
+      'js/comics/comics-normalizer.factory.spec.js',
+      'js/creators/creators-normalizer.factory.spec.js',
+      'js/events/events-normalizer.factory.spec.js',
+      'js/series/series-normalizer.factory.spec.js',
+      'js/stories/stories-normalizer.factory.spec.js'
     ],
     frameworks: ['jasmine'],
     plugins: [
@@ -53,7 +61,8 @@ module.exports = function(config) {
       'karma-coverage',
       'karma-firefox-launcher',
       'karma-jasmine',
-      'karma-phantomjs-launcher'
+      'karma-phantomjs-launcher',
+      'karma-spec-reporter'
     ],
     preprocessors: {
       // source files, that you wanna generate coverage for
@@ -62,6 +71,6 @@ module.exports = function(config) {
       'js/**/*.js': ['coverage']
     },
     // coverage reporter generates the coverage
-    reporters: ['progress', 'coverage']
+    reporters: ['spec', 'coverage']
   });
 };
