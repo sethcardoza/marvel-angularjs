@@ -14,9 +14,14 @@ describe('MarvelService', function () {
   });
 
   describe('.getList()', function () {
-    // A simple test to verify the method all exists
     it('should exist', function () {
       expect(MarvelFactory.getList).toBeDefined();
+    });
+  });
+
+  describe('.getItem()', function () {
+    it('should exist', function () {
+      expect(MarvelFactory.getItem).toBeDefined();
     });
   });
 });

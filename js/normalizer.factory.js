@@ -66,7 +66,7 @@
             item = StoriesNormalizerService.normalize(data);
             break;
           default:
-            item = data;
+            item = {};
             break;
           }
 

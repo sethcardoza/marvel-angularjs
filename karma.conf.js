@@ -47,6 +47,7 @@ module.exports = function (config) {
       'js/stories/stories.controller.js',
       'js/stories/stories-normalizer.factory.js',
       'js/marvel.factory.spec.js',
+      'js/normalizer.factory.spec.js',
       'js/characters/characters-normalizer.factory.spec.js',
       'js/characters/characters.controller.spec.js',
       'js/comics/comics-normalizer.factory.spec.js',
