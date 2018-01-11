@@ -1,7 +1,8 @@
+/* eslint-env jasmine */
 describe('NormalizerService', function () {
   beforeEach(module('marvelApp'));
 
-  var MarvelFactory;
+  var NormalizerFactory;
 
   beforeEach(angular.mock.module('marvelApp'));
 

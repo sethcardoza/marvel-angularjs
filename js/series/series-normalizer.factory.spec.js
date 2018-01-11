@@ -1,3 +1,4 @@
+/* eslint-env jasmine */
 describe('SeriesNormalizerFactory', function () {
   beforeEach(module('marvelApp'));
 

@@ -1,3 +1,4 @@
+/* eslint-env jasmine */
 describe('CharactersController', function () {
   beforeEach(module('marvelApp'));
 
