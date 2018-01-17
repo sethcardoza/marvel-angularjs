@@ -46,6 +46,7 @@ module.exports = function (config) {
       'js/stories/stories.module.js',
       'js/stories/stories.controller.js',
       'js/stories/stories-normalizer.factory.js',
+      'js/app.spec.js',
       'js/marvel.factory.spec.js',
       'js/normalizer.factory.spec.js',
       'js/characters/characters-normalizer.factory.spec.js',
@@ -54,14 +55,16 @@ module.exports = function (config) {
       'js/creators/creators-normalizer.factory.spec.js',
       'js/events/events-normalizer.factory.spec.js',
       'js/series/series-normalizer.factory.spec.js',
-      'js/stories/stories-normalizer.factory.spec.js'
+      'js/stories/stories-normalizer.factory.spec.js',
+      'templates/partials/*.html'
     ],
     frameworks: ['jasmine'],
     plugins: [
-      'karma-chrome-launcher',
+      //'karma-chrome-launcher',
       'karma-coverage',
-      'karma-firefox-launcher',
+      //'karma-firefox-launcher',
       'karma-jasmine',
+      'karma-ng-html2js-preprocessor',
       'karma-phantomjs-launcher',
       'karma-spec-reporter'
     ],
@@ -69,9 +72,15 @@ module.exports = function (config) {
       // source files, that you wanna generate coverage for
       // do not include tests or libraries
       // (these files will be instrumented by Istanbul)
-      'js/**/*.js': ['coverage']
+      'js/**/*.js': ['coverage'],
+      // needed to test directives with templateUrl
+      'templates/**/*.html': ['ng-html2js']
     },
     // coverage reporter generates the coverage
-    reporters: ['spec', 'coverage']
+    reporters: ['spec', 'coverage'],
+    ngHtml2JsPreprocessor: {
+      // the name of the Angular module to create
+      moduleName: "automatedTest.templates"
+  },
   });
 };
