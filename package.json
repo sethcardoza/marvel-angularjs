@@ -23,6 +23,7 @@
     "karma-jasmine": "^1.1.0",
     "karma-ng-html2js-preprocessor": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.4",
+    "karma-polyfill": "^1.0.0",
     "karma-spec-reporter": "0.0.32"
   },
   "scripts": {

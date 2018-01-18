@@ -58,16 +58,16 @@ module.exports = function (config) {
       'js/stories/stories-normalizer.factory.spec.js',
       'templates/partials/*.html'
     ],
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'polyfill'],
     plugins: [
-      //'karma-chrome-launcher',
       'karma-coverage',
-      //'karma-firefox-launcher',
       'karma-jasmine',
       'karma-ng-html2js-preprocessor',
       'karma-phantomjs-launcher',
+      'karma-polyfill',
       'karma-spec-reporter'
     ],
+    polyfill: ['Object.assign'],
     preprocessors: {
       // source files, that you wanna generate coverage for
       // do not include tests or libraries
