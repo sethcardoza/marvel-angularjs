@@ -1,22 +1,22 @@
 /* eslint-env jasmine */
-describe('CharactersController', function () {
+describe('StoriesController', function () {
   beforeEach(module('marvelApp'));
 
   var $controller;
   var $rootScope;
-  var CharactersController;
+  var StoriesController;
 
-  beforeEach(angular.mock.module('marvelApp.characters'));
+  beforeEach(angular.mock.module('marvelApp.stories'));
 
   beforeEach(inject(function (_$controller_, _$rootScope_) {
     $controller = _$controller_;
     $rootScope = _$rootScope_;
-    CharactersController = $controller('CharactersController', {
+    StoriesController = $controller('StoriesController', {
       $scope: $rootScope
     });
   }));
 
   it('should be defined', function () {
-    expect(CharactersController).toBeDefined();
+    expect(StoriesController).toBeDefined();
   });
 });
