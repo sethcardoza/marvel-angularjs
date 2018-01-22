@@ -21,6 +21,7 @@
       id = $routeParams.id;
       $scope.currentItemId = id;
       if (typeof id !== 'undefined' && id !== null) {
+        console.log(id);
         MarvelService.getItem(type, id).then(function (data) {
           console.log(data);
           $scope.character = data;
