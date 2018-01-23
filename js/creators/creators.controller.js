@@ -22,7 +22,6 @@
       $scope.currentItemId = id;
       if (typeof id !== 'undefined' && id !== null) {
         MarvelService.getItem(type, id).then(function (data) {
-          console.log(data);
           $scope.creator = data;
           $scope.comics = data.comics;
           $scope.comicsTotal = data.comicsTotal;
@@ -40,7 +39,6 @@
       if (itemType && itemId) {
         params[itemType] = itemId;
         MarvelService.getItem(itemType, itemId).then(function (data) {
-          console.log(data);
           $scope.belongingTo = data;
           $scope.belongingTo.type = itemType;
         });

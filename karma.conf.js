@@ -61,7 +61,7 @@ module.exports = function (config) {
       'js/series/series.controller.spec.js',
       'js/stories/stories-normalizer.factory.spec.js',
       'js/stories/stories.controller.spec.js',
-      'templates/partials/*.html'
+      'templates/*.html'
     ],
     frameworks: ['jasmine', 'polyfill'],
     plugins: [

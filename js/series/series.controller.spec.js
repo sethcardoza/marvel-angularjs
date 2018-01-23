@@ -5,11 +5,15 @@ describe('SeriesController', function () {
   var $controller;
   var $rootScope;
   var $routeParams;
+  var $scope;
   var SeriesController;
   var MarvelService;
   var mockPromise = {
     then: function (success) {
-      success({});
+      success({
+        count: 0,
+        length: 0
+      });
     }
   };
 
@@ -73,6 +77,122 @@ describe('SeriesController', function () {
     it('should call the marvel service', function () {
 
       expect(MarvelService.getItem).toHaveBeenCalledWith($routeParams.itemType, $routeParams.itemId);
+    });
+  });
+
+  describe('series load more', function () {
+    var params = {
+      offset: 0,
+      titleStartsWith: undefined
+    };
+    beforeEach(inject(function (_$controller_, _$rootScope_, _$routeParams_, _MarvelService_) {
+      $controller = _$controller_;
+      $rootScope = _$rootScope_;
+      $routeParams = _$routeParams_;
+      MarvelService = _MarvelService_;
+
+      $scope = $rootScope.$new();
+
+      spyOn(MarvelService, 'getList').and.returnValue(mockPromise);
+
+      SeriesController = $controller('SeriesController', {
+        $scope: $rootScope,
+        $routeParams: $routeParams,
+        MarvelService: MarvelService
+      });
+    }));
+
+    it('should call the marvel service', function () {
+      $scope.loadMore();
+      expect(MarvelService.getList).toHaveBeenCalledWith('series', params);
+    });
+  });
+
+  describe('series load more clear startsWith param', function () {
+    var params = {
+      offset: 0
+    };
+    beforeEach(inject(function (_$controller_, _$rootScope_, _$routeParams_, _MarvelService_) {
+      $controller = _$controller_;
+      $rootScope = _$rootScope_;
+      $routeParams = _$routeParams_;
+      MarvelService = _MarvelService_;
+
+      $scope = $rootScope.$new();
+
+      spyOn(MarvelService, 'getList').and.returnValue(mockPromise);
+
+      SeriesController = $controller('SeriesController', {
+        $scope: $scope,
+        $routeParams: $routeParams,
+        MarvelService: MarvelService
+      });
+    }));
+
+    it('should call the marvel service', function () {
+      $scope.listOptions = {
+        startsWith: ''
+      };
+      $scope.loadMore();
+      expect(MarvelService.getList).toHaveBeenCalledWith('series', params);
+    });
+  });
+
+  describe('series filter', function () {
+    var params = {
+      offset: 0,
+      titleStartsWith: undefined
+    };
+    beforeEach(inject(function (_$controller_, _$rootScope_, _$routeParams_, _MarvelService_) {
+      $controller = _$controller_;
+      $rootScope = _$rootScope_;
+      $routeParams = _$routeParams_;
+      MarvelService = _MarvelService_;
+
+      $scope = $rootScope.$new();
+
+      spyOn(MarvelService, 'getList').and.returnValue(mockPromise);
+
+      SeriesController = $controller('SeriesController', {
+        $scope: $rootScope,
+        $routeParams: $routeParams,
+        MarvelService: MarvelService
+      });
+    }));
+
+    it('should call the marvel service', function () {
+      $scope.filter();
+      expect(MarvelService.getList).toHaveBeenCalledWith('series', params);
+    });
+  });
+
+  describe('series filter clear startsWith param', function () {
+    var params = {
+      offset: 0
+    };
+    beforeEach(inject(function (_$controller_, _$rootScope_, _$routeParams_, _MarvelService_) {
+      $controller = _$controller_;
+      $rootScope = _$rootScope_;
+      $routeParams = _$routeParams_;
+      MarvelService = _MarvelService_;
+
+      $scope = $rootScope.$new();
+
+      spyOn(MarvelService, 'getList').and.returnValue(mockPromise);
+
+      SeriesController = $controller('SeriesController', {
+        $scope: $scope,
+        $routeParams: $routeParams,
+        MarvelService: MarvelService
+      });
+    }));
+
+    it('should call the marvel service', function () {
+      $scope.listOptions = {
+        startsWith: ''
+      };
+      $scope.filter();
+      expect(MarvelService.getList).toHaveBeenCalledWith('series', params);
     });
   });
 });

@@ -22,7 +22,6 @@
       $scope.currentItemId = id;
       if (typeof id !== 'undefined' && id !== null) {
         MarvelService.getItem(type, id).then(function (data) {
-          console.log(data);
           $scope.comic = data;
           $scope.characters = data.characters;
           $scope.charactersTotal = data.charactersTotal;
@@ -42,7 +41,6 @@
       if (itemType && itemId) {
         params[itemType] = itemId;
         MarvelService.getItem(itemType, itemId).then(function (data) {
-          console.log(data);
           $scope.belongingTo = data;
           $scope.belongingTo.type = itemType;
         });
@@ -61,7 +59,6 @@
           }
 
           MarvelService.getList(type, params).then(function (data) {
-            console.log(data);
             if (data.count === 0) {
               max = true;
               $scope.infiniteScrollDisabled = true;
