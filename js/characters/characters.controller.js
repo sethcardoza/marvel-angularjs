@@ -93,7 +93,7 @@
           });
         }
       };
-    }).directive('charactersList', function () {
+    }).directive('charactersList', /* istanbul ignore next */ function () {
       return {
         restrict: 'E',
         templateUrl: 'templates/characters/list.html'

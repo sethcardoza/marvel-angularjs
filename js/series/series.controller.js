@@ -95,7 +95,7 @@
           });
         }
       };
-    }).directive('seriesList', function () {
+    }).directive('seriesList', /* istanbul ignore next */ function () {
       return {
         restrict: 'E',
         templateUrl: 'templates/series/list.html'

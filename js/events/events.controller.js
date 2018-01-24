@@ -95,7 +95,7 @@
           });
         }
       };
-    }).directive('eventsList', function () {
+    }).directive('eventsList', /* istanbul ignore next */ function () {
       return {
         restrict: 'E',
         templateUrl: 'templates/events/list.html'

@@ -93,7 +93,7 @@
           });
         }
       };
-    }).directive('creatorsList', function () {
+    }).directive('creatorsList', /* istanbul ignore next */ function () {
       return {
         restrict: 'E',
         templateUrl: 'templates/creators/list.html'

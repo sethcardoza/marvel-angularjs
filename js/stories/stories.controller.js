@@ -95,7 +95,7 @@
           });
         }
       };
-    }).directive('storiesList', function () {
+    }).directive('storiesList', /* istanbul ignore next */ function () {
       return {
         restrict: 'E',
         templateUrl: 'templates/stories/list.html'

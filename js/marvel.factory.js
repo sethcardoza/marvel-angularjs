@@ -40,6 +40,8 @@
 
         params = getParams(additionalParams);
 
+        console.log(type);
+        console.log(url);
         return $http.get(url, {params: params})
           .then(
             function (response) {

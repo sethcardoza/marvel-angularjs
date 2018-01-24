@@ -95,7 +95,7 @@
           });
         }
       };
-    }).directive('comicsList', function () {
+    }).directive('comicsList', /* istanbul ignore next */ function () {
       return {
         restrict: 'E',
         templateUrl: 'templates/comics/list.html'
