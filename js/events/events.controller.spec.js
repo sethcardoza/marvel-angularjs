@@ -51,7 +51,6 @@ describe('EventsController', function () {
     }));
 
     it('should call the marvel service', function () {
-
       expect(MarvelService.getItem).toHaveBeenCalledWith('events', $routeParams.id);
     });
   });
@@ -75,7 +74,6 @@ describe('EventsController', function () {
     }));
 
     it('should call the marvel service', function () {
-
       expect(MarvelService.getItem).toHaveBeenCalledWith($routeParams.itemType, $routeParams.itemId);
     });
   });

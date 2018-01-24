@@ -41,7 +41,7 @@
           extension: 'jpg'
         }
       };
-      var dataMock = Object.assign({}, defaultDataMock);;
+      var dataMock = Object.assign({}, defaultDataMock);
       var characters = {
         available: 1,
         items: [
@@ -101,7 +101,7 @@
           id: '123',
           title: 'Secret Wars'
         }
-      ];;
+      ];
       var series = {
         available: 2,
         items: [
@@ -124,7 +124,7 @@
           id: '456',
           title: 'X-Men'
         }
-      ];;
+      ];
       var stories = {
         available: 1,
         items: [

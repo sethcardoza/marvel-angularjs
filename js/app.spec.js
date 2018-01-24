@@ -14,7 +14,6 @@
 
     describe('belonging-to directive', function () {
       beforeEach(inject(function (_$compile_, _$rootScope_) {
-
         $compile = _$compile_;
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();
@@ -47,7 +46,6 @@
 
     describe('item-count directive', function () {
       beforeEach(inject(function (_$compile_, _$rootScope_) {
-
         $compile = _$compile_;
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();
@@ -74,7 +72,6 @@
 
     describe('list-options directive', function () {
       beforeEach(inject(function (_$compile_, _$rootScope_) {
-
         $compile = _$compile_;
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();

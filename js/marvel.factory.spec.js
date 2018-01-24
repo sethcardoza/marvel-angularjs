@@ -4,9 +4,9 @@ describe('MarvelService', function () {
 
   var $httpBackend;
   var MarvelFactory;
-  var comics = {
-    comics: []
-  };
+  // var comics = {
+  //   comics: []
+  // };
 
   beforeEach(angular.mock.module('marvelApp'));
 
@@ -19,10 +19,10 @@ describe('MarvelService', function () {
       .respond({comics: []});
   }));
 
-  afterEach(function() {
-     $httpBackend.verifyNoOutstandingExpectation();
-     $httpBackend.verifyNoOutstandingRequest();
-   });
+  afterEach(function () {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
 
   it('should be defined', function () {
     expect(MarvelFactory).toBeDefined();
@@ -35,8 +35,8 @@ describe('MarvelService', function () {
 
     it('should get a list of items', function () {
       MarvelFactory.getList('comics');
-      //$httpBackend.expectGet('http://gateway.marvel.com/v1/public/comics');
-      //$httpBackend.flush();
+      // $httpBackend.expectGet('http://gateway.marvel.com/v1/public/comics');
+      // $httpBackend.flush();
     });
   });
 
